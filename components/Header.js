@@ -57,7 +57,6 @@ const StyledLink = styled(Link)`
     font-size: 1rem;
   }
 `;
-
 const NavButton = styled.button`
   width: 2rem;
   height: 2rem;
@@ -74,7 +73,7 @@ const NavButton = styled.button`
 
 export default function Header() {
   const { cartProducts } = useContext(CartContext);
-  const [mobileNavActive, setMobileNavActive] = useState(false);
+  const [mobileNavActive, setMobileNavActive] = useState("false");
 
   return (
     <StyledHeader>

@@ -60,7 +60,7 @@ const CartButton = styled(Button)`
   }
 `;
 export default function productDetail({ product }) {
-  const [productDetail, setProductDetail] = useState(null);
+  const [productDetail, setProductDetail] = useState({});
 
   const router = useRouter();
   const { id } = router.query;

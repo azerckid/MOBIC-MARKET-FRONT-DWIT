@@ -26,7 +26,7 @@ const Wraper = styled.div`
   padding: 1rem 0;
 `;
 const StyledNav = styled.nav`
-  display: ${(props) => (props[`mobile`] ? "block" : "none")};
+  ${(props) => (props.mobile ? "display: block" : "display: none")};
   align-items: center;
   gap: 2rem;
   position: fixed;
@@ -73,7 +73,7 @@ const NavButton = styled.button`
 
 export default function Header() {
   const { cartProducts } = useContext(CartContext);
-  const [mobileNavActive, setMobileNavActive] = useState("false");
+  const [mobileNavActive, setMobileNavActive] = useState(false);
 
   return (
     <StyledHeader>

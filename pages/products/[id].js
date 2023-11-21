@@ -59,7 +59,7 @@ const CartButton = styled(Button)`
     background-color: hotpink;
   }
 `;
-export default function productDetail({ product }) {
+export default function ProductDetail({ product }) {
   const [productDetail, setProductDetail] = useState({});
 
   const router = useRouter();

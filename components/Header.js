@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Center from "./Center";
 import { useContext, useState } from "react";
 import { CartContext } from "./CartContext";
+import { useSession, signIn, signOut } from "next-auth/react";
 import BarsIcon from "./icons/Bars";
 
 const StyledHeader = styled.header`
@@ -73,6 +74,7 @@ const NavButton = styled.button`
 
 export default function Header() {
   const { cartProducts } = useContext(CartContext);
+  const { data: session } = useSession();
   const [mobileNavActive, setMobileNavActive] = useState(false);
 
   return (
@@ -83,9 +85,20 @@ export default function Header() {
           <StyledNav mobile={mobileNavActive}>
             <StyledLink href="/">Home</StyledLink>
             <StyledLink href="/products">All Products</StyledLink>
-            <StyledLink href="/categories">Categories</StyledLink>
             <StyledLink href="/account">Account</StyledLink>
             <StyledLink href="/cart">Cart ({cartProducts.length})</StyledLink>
+            {session ? (
+              <StyledLink
+                href="/auth"
+                onClick={() => {
+                  signOut();
+                }}
+              >
+                SignOut
+              </StyledLink>
+            ) : (
+              <StyledLink href="/auth">Sign in</StyledLink>
+            )}
           </StyledNav>
           <NavButton onClick={() => setMobileNavActive((prev) => !prev)}>
             <BarsIcon />

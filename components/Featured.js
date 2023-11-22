@@ -11,20 +11,7 @@ const Bg = styled.div`
   padding: 2rem;
   color: #fff;
 `;
-const Title = styled.h1`
-  margin: 0.5rem 0;
-  font-weight: 200;
-  font-size: 2rem;
-  @media screen and (min-width: 768px) {
-    font-weight: 400;
-    font-size: 3rem;
-  }
-`;
-const Description = styled.p`
-  font-size: 1rem;
-  line-height: 1.5rem;
-  color: #aaa;
-`;
+
 const ColumnWraper = styled.div`
   display: grid;
   grid-template-columns: 1fr;
@@ -34,7 +21,6 @@ const ColumnWraper = styled.div`
     height: 300px;
     object-fit: cover;
     display: block;
-    /* margin: 0 auto; */
   }
   div:nth-child(1) {
     order: 2;
@@ -52,6 +38,20 @@ const Column = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+`;
+const Title = styled.h1`
+  margin: 0.5rem 0;
+  font-weight: 200;
+  font-size: 2rem;
+  @media screen and (min-width: 768px) {
+    font-weight: 400;
+    font-size: 3rem;
+  }
+`;
+const Description = styled.p`
+  font-size: 1rem;
+  line-height: 1.5rem;
+  color: #aaa;
 `;
 const BtnBox = styled.div`
   display: flex;

@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { Form, Select, Icon, Input, Switch, Button } from "antd";
-import { useRouter } from "next/router";
-import { useUserAgent } from "next-useragent";
+import { withRouter } from "react-router-dom";
+import { withUserAgent } from "react-useragent";
 import queryString from "query-string";
+
 import {
   PGS,
   METHODS_FOR_INICIS,
@@ -15,7 +16,6 @@ const { Item } = Form;
 const { Option } = Select;
 
 function Payment({ history, form, ua }) {
-  const router = useRouter();
   const [methods, setMethods] = useState(METHODS_FOR_INICIS);
   const [quotas, setQuotas] = useState(QUOTAS_FOR_INICIS_AND_KCP);
   const [isQuotaRequired, setIsQuotaRequired] = useState(true);
@@ -31,6 +31,7 @@ function Payment({ history, form, ua }) {
 
   function handleSubmit(e) {
     e.preventDefault();
+
     validateFieldsAndScroll((error, values) => {
       if (!error) {
         /* 가맹점 식별코드 */
@@ -96,7 +97,6 @@ function Payment({ history, form, ua }) {
         }
       }
     });
-    router.push(`/payment/result?${query}`);
   }
 
   function callback(response) {
@@ -414,4 +414,4 @@ const FormContainer = styled(Form)`
 
 const PaymentForm = Form.create({ name: "payment" })(Payment);
 
-export default PaymentForm;
+export default withUserAgent(withRouter(PaymentForm));

@@ -90,6 +90,24 @@ const PaymentButton = styled(Button)`
     background-color: hotpink;
   }
 `;
+const KakaoButton = styled(Button)`
+  width: 100%;
+  margin-top: 0.5rem;
+  color: black;
+  background-color: #fee500;
+  &:hover {
+    background-color: hotpink;
+  }
+`;
+const NaverButton = styled(Button)`
+  width: 100%;
+  margin-top: 0.5rem;
+  color: white;
+  background-color: #3eaf0e;
+  &:hover {
+    background-color: hotpink;
+  }
+`;
 
 export default function CartPage() {
   const { cartProducts, addProduct, removeProductFromCart, clearCart } =
@@ -183,6 +201,93 @@ export default function CartPage() {
       </>
     );
   }
+
+  if (typeof window !== "undefined") {
+    const IMP = window.IMP;
+    IMP?.init("imp50315481");
+    console.log("IMP", IMP);
+  }
+
+  const onClickKakaoPay = () => {
+    IMP?.request_pay(
+      {
+        pg: "kakaopay",
+        pay_method: "card",
+        amount: 1000,
+        name: "주문명:결제테스트",
+        merchant_uid: "merchant_" + new Date().getTime(),
+        buyer_email: "",
+        buyer_name: "",
+        buyer_tel: "",
+        buyer_addr: "",
+        buyer_postcode: "",
+        m_redirect_url: "",
+      },
+      (rsp) => {
+        const { status, error_msg } = rsp;
+        if (error_msg) {
+          alert(error_msg);
+        }
+        if (status === "paid") {
+          const { imp_uid, merchant_uid } = rsp;
+          verifyPayment({ imp_uid, merchant_uid });
+          alert("결제 성공");
+        }
+      } //end callback
+    );
+  };
+  const onClickNaverPay = () => {
+    IMP?.request_pay(
+      {
+        pg: "tosspay",
+        pay_method: "card",
+        amount: 1000,
+        name: "주문명:결제테스트",
+        merchant_uid: "merchant_" + new Date().getTime(),
+      },
+      (rsp) => {
+        if (rsp.success) {
+          var msg = "결제가 완료되었습니다.";
+          msg += "고유ID : " + rsp.imp_uid;
+          msg += "상점 거래ID : " + rsp.merchant_uid;
+          msg += "결제 금액 : " + rsp.paid_amount;
+          msg += "카드 승인번호 : " + rsp.apply_num;
+        } else {
+          var msg = "결제에 실패하였습니다.";
+          msg += "에러내용 : " + rsp.error_msg;
+        }
+        alert(msg);
+      } //end callback
+    );
+  };
+
+  // axios.post("/payment/verify", async (req, res) => {
+  //   const {
+  //     data: { access_token },
+  //   } = await axios({
+  //     url: "https://api.iamport.kr/users/getToken",
+  //     method: "post",
+  //     headers: { "Content-Type": "application/json" },
+  //     data: {
+  //       imp_key: `${process.env.STORE_API_KEY}`,
+  //       imp_secret: `${process.env.STORE_API_SECRET}`,
+  //     },
+  //   });
+  // });
+  // axios.post("payments/check", async (req, res) => {
+  //   const {
+  //     data: { access_token },
+  //   } = await axios({});
+  //   const { imp_uid } = req.body;
+  //   const {
+  //     data: { response },
+  //   } = await axios({
+  //     url: `https://api.iamport.kr/payments/${imp_uid}`,
+  //     method: "get",
+  //     headers: { Authorization: access_token },
+  //   });
+  //   const { amount, name, merchant_uid } = response;
+  // });
 
   return (
     <>
@@ -310,6 +415,8 @@ export default function CartPage() {
             <PaymentButton block onClick={goToPayment}>
               Continue to Payment
             </PaymentButton>
+            <KakaoButton onClick={onClickKakaoPay}>카카오페이</KakaoButton>
+            <NaverButton onClick={onClickNaverPay}>토스 페이</NaverButton>
           </Box>
         </ColumnsWrapper>
       </Center>

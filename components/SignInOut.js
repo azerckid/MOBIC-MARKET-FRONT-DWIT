@@ -8,13 +8,13 @@ const ButtonWraper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 2rem;
+  gap: 1rem;
   @media screen and (min-width: 768px) {
   }
 `;
 const Button = styled.button`
-  padding-right: 2rem;
-  padding-left: 2rem;
+  padding-right: 3rem;
+  padding-left: 3rem;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
   display: flex;
@@ -28,8 +28,10 @@ const Button = styled.button`
   border: none;
   /* box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.2); */
   transition: all 0.2s ease-in-out;
+  cursor: pointer;
   &:hover {
-    background-color: hotpink;
+    color: white;
+    background-color: gray;
   }
 `;
 
@@ -38,7 +40,7 @@ export default function SignInOut() {
   const [isLogin, setIsLogin] = useState(false);
 
   const Title = styled.div`
-    margin-top: 2rem;
+    margin-top: 4rem;
     margin-bottom: 1rem;
     font-size: 1rem;
     font-weight: 600;

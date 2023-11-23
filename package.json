@@ -16,6 +16,8 @@
     "mongoose": "^8.0.1",
     "next": "14.0.3",
     "next-auth": "^4.24.5",
+    "next-useragent": "^2.8.0",
+    "query-string": "^8.1.0",
     "react": "^18",
     "react-dom": "^18",
     "stripe": "^14.5.0",

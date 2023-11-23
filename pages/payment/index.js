@@ -4,6 +4,7 @@ import { Form, Select, Icon, Input, Switch, Button } from "antd";
 import { useRouter } from "next/router";
 import { useUserAgent } from "next-useragent";
 import queryString from "query-string";
+
 import {
   PGS,
   METHODS_FOR_INICIS,

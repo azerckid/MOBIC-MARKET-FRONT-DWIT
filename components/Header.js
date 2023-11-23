@@ -5,6 +5,8 @@ import { useContext, useState } from "react";
 import { CartContext } from "./CartContext";
 import { useSession, signIn, signOut } from "next-auth/react";
 import BarsIcon from "./icons/Bars";
+import Router from "next/router";
+import Auth from "@/components/auth";
 
 const StyledHeader = styled.header`
   background-color: #222;
@@ -71,11 +73,32 @@ const NavButton = styled.button`
     display: none;
   }
 `;
+const LoginButton = styled.button`
+  font-size: 1rem;
+  font-weight: 400;
+  color: #aaa;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  &:hover {
+    color: #fff;
+  }
+`;
 
 export default function Header() {
   const { cartProducts } = useContext(CartContext);
   const { data: session } = useSession();
   const [mobileNavActive, setMobileNavActive] = useState(false);
+  const [isLogin, setIsLogin] = useState(false);
+
+  function signInButton() {
+    setIsLogin(true);
+  }
+  function signOutButton() {
+    setIsLogin(false);
+    signOut();
+  }
 
   return (
     <StyledHeader>
@@ -87,7 +110,7 @@ export default function Header() {
             <StyledLink href="/products">All Products</StyledLink>
             <StyledLink href="/account">Account</StyledLink>
             <StyledLink href="/cart">Cart ({cartProducts.length})</StyledLink>
-            {session ? (
+            {/* {session ? (
               <StyledLink
                 href="/auth"
                 onClick={() => {
@@ -98,12 +121,18 @@ export default function Header() {
               </StyledLink>
             ) : (
               <StyledLink href="/auth">Sign in</StyledLink>
+            )} */}
+            {session ? (
+              <LoginButton onClick={signOutButton}>sign Out</LoginButton>
+            ) : (
+              <LoginButton onClick={signInButton}>sign In</LoginButton>
             )}
           </StyledNav>
           <NavButton onClick={() => setMobileNavActive((prev) => !prev)}>
             <BarsIcon />
           </NavButton>
         </Wraper>
+        {isLogin ? <Auth /> : null}
       </Center>
     </StyledHeader>
   );

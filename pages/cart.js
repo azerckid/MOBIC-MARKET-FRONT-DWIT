@@ -19,9 +19,26 @@ const ColumnsWrapper = styled.div`
 `;
 
 const Box = styled.div`
-  padding: 2rem 0.3rem;
+  padding: 2rem 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
   background-color: #fff;
   border-radius: 0.5rem;
+  h1 {
+    margin-bottom: 1rem;
+    text-align: center;
+    font-family: "Pretendard Variable", Pretendard;
+    font-size: 1.5rem;
+    font-weight: 400;
+  }
+  h2 {
+    margin-bottom: 1rem;
+    text-align: center;
+    font-family: "Pretendard Variable", Pretendard;
+    font-size: 1.2rem;
+    font-weight: 400;
+  }
 `;
 
 const ProductInfoCell = styled.td`
@@ -83,25 +100,35 @@ const AddMinusButton = styled(Button)`
   @media screen and (min-width: 768px) {
   }
 `;
-const PaymentButton = styled(Button)`
+const PaymentButton = styled.button`
   width: 100%;
+  padding: 0.7rem 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  color: #fff;
   background-color: hotpink;
   &:hover {
     background-color: hotpink;
   }
 `;
-const KakaoButton = styled(Button)`
+const KakaoButton = styled.button`
   width: 100%;
   margin-top: 0.5rem;
+  padding: 0.7rem 1rem;
+  border: none;
+  border-radius: 0.5rem;
   color: black;
   background-color: #fee500;
   &:hover {
     background-color: hotpink;
   }
 `;
-const NaverButton = styled(Button)`
+const NaverButton = styled.button`
   width: 100%;
   margin-top: 0.5rem;
+  padding: 0.7rem 1rem;
+  border: none;
+  border-radius: 0.5rem;
   color: white;
   background-color: #3eaf0e;
   &:hover {

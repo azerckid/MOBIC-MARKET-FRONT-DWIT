@@ -100,6 +100,12 @@ const AddMinusButton = styled(Button)`
   @media screen and (min-width: 768px) {
   }
 `;
+const LineBox = styled.div`
+  width: 100%;
+  height: 1rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px dashed lightgray;
+`;
 const PaymentButton = styled.button`
   width: 100%;
   padding: 0.7rem 1rem;
@@ -440,6 +446,8 @@ export default function CartPage() {
               name="products"
               value={cartProducts.join(",")}
             />
+            <LineBox></LineBox>
+            <h2>Payment Method</h2>
             <PaymentButton block onClick={goToPayment}>
               Continue to Payment
             </PaymentButton>

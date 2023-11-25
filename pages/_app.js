@@ -10,13 +10,13 @@ const GlobalStyles = createGlobalStyle`
   }
   *,*::before,*::after {
     box-sizing: border-box;
-    font-family: 'Roboto', sans-serif;
+    font-family: "Pretendard Variable", Pretendard;
   }
   body {
     padding: 0;
     margin: 0;
     background-color: #eee;
-    font-family: 'Roboto', sans-serif;
+    font-family: "Pretendard Variable", Pretendard;
   }
 `;
 

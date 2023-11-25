@@ -26,9 +26,11 @@ const ProductInfoWraper = styled.div`
   flex-direction: column;
 `;
 const DescripttionBox = styled.div`
+  font-family: "Pretendard Variable", Pretendard;
   line-height: 1.5rem;
 `;
 const PriceBox = styled.div`
+  font-family: "Pretendard Variable", Pretendard;
   margin-top: 3rem;
   margin-left: 1rem;
   display: flex;

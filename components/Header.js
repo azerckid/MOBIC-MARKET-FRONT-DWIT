@@ -14,10 +14,11 @@ const StyledHeader = styled.header`
   }
 `;
 const Logo = styled(Link)`
+  font-family: "Pretendard Variable", Pretendard;
   color: #fff;
   text-decoration: none;
-  font-size: 2rem;
-  font-weight: 600;
+  font-size: 1.5rem;
+  font-weight: 200;
   margin: 0 1rem;
   position: relative;
   z-index: 1;

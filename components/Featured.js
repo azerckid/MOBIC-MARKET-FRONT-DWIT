@@ -1,10 +1,9 @@
 import styled from "styled-components";
 import Center from "./Center";
-import Button from "./Button";
-import ButtonLink from "./ButtonLink";
 import CartIcon from "./icons/CartIcon";
 import { useContext } from "react";
 import { CartContext } from "./CartContext";
+import Link from "next/link";
 
 const Bg = styled.div`
   background-color: #333;
@@ -40,6 +39,7 @@ const Column = styled.div`
   align-items: center;
 `;
 const Title = styled.h1`
+  font-family: "Pretendard Variable", Pretendard;
   margin: 0.5rem 0;
   font-weight: 200;
   font-size: 2rem;
@@ -49,7 +49,9 @@ const Title = styled.h1`
   }
 `;
 const Description = styled.p`
-  font-size: 1rem;
+  font-family: "Pretendard Variable", Pretendard;
+  font-size: 1.1rem;
+  font-weight: 200;
   line-height: 1.5rem;
   color: #aaa;
 `;
@@ -57,6 +59,66 @@ const BtnBox = styled.div`
   display: flex;
   gap: 0.2rem;
   margin-top: 3rem;
+`;
+const ButtonNew = styled.button`
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.7rem 1rem;
+  text-decoration: none;
+  font-size: 0.8rem;
+  color: #fff;
+  border: none;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease-in-out;
+  /* ${(props) => props.block && "width: 100%;"} */
+  svg {
+    height: 1.2rem;
+    margin-right: 0.5rem;
+  }
+  cursor: pointer;
+  background-color: gray;
+  &:hover {
+    background-color: #4431d6;
+  }
+  ${(props) =>
+    props.primary &&
+    css`
+      background-color: #5542f6;
+      &:hover {
+        background-color: #d63131;
+      }
+    `}
+`;
+const ButtonLinkNew = styled(Link)`
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.7rem 1rem;
+  text-decoration: none;
+  font-size: 0.8rem;
+  color: #fff;
+  border: none;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease-in-out;
+  /* ${(props) => props.block && "width: 100%;"} */
+  svg {
+    height: 1.2rem;
+    margin-right: 0.5rem;
+  }
+  cursor: pointer;
+  background-color: gray;
+  &:hover {
+    background-color: #4431d6;
+  }
+  ${(props) =>
+    props.primary &&
+    css`
+      background-color: #5542f6;
+      &:hover {
+        background-color: #d63131;
+      }
+    `}
 `;
 
 export default function Featured({ product }) {
@@ -71,15 +133,15 @@ export default function Featured({ product }) {
           <Column>
             <div>
               <Title>{product.title}</Title>
-              <Description>{product.description.slice(0, 100)}</Description>
+              <Description>{product.description.slice(0, 100)}...</Description>
               <BtnBox>
-                <ButtonLink href={`/products/` + product._id}>
+                <ButtonLinkNew href={`/products/` + product._id}>
                   READ MORE
-                </ButtonLink>
-                <Button onClick={addFeaturedToCart}>
+                </ButtonLinkNew>
+                <ButtonNew onClick={addFeaturedToCart}>
                   <CartIcon></CartIcon>
                   ADD TO CART
-                </Button>
+                </ButtonNew>
               </BtnBox>
             </div>
           </Column>

@@ -221,7 +221,7 @@ export default function CartPage() {
         buyer_tel: "",
         buyer_addr: "",
         buyer_postcode: "",
-        m_redirect_url: "",
+        m_redirect_url: "http://localhost:3000/cart",
       },
       (rsp) => {
         const { status, error_msg } = rsp;
@@ -244,6 +244,7 @@ export default function CartPage() {
         amount: 1000,
         name: "주문명:결제테스트",
         merchant_uid: "merchant_" + new Date().getTime(),
+        m_redirect_url: "http://localhost:3000/cart",
       },
       (rsp) => {
         if (rsp.success) {

@@ -23,15 +23,19 @@ const WhiteBox = styled(Link)`
   }
 `;
 const Title = styled(Link)`
-  margin-bottom: 0px;
-  font-weight: normal;
-  font-size: 1rem;
+  margin-bottom: 4px;
+  font-family: "Pretendard Variable", Pretendard;
+  font-weight: 300;
+  font-size: 0.9rem;
   color: inherit;
   text-decoration: none;
 `;
 const ProductInfoBox = styled.div`
   margin-top: 1rem;
   margin-left: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
 `;
 const PriceRow = styled.div`
   display: flex;
@@ -41,7 +45,6 @@ const PriceRow = styled.div`
   font-weight: normal;
 `;
 const PriceUnit = styled.div`
-  padding-top: 8px;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -55,19 +58,29 @@ const Price = styled.div`
   font-size: 1.2rem;
   font-weight: 800;
 `;
-const CartButton = styled(Button)`
-  padding-right: 0.7rem;
-  padding-left: 0.5rem;
-  padding-top: 0.4rem;
-  padding-bottom: 0.45rem;
+const CartButton = styled.button`
+  padding-right: 1.2rem;
+  padding-left: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
+  color: #fff;
   background-color: dodgerblue;
   border-radius: 4px;
   transition: all 0.2s ease-in-out;
+  font-family: "Pretendard Variable", Pretendard;
+  cursor: pointer;
+  border: none;
+  svg {
+    height: 1rem;
+    margin-right: 0.5rem;
+  }
+
   &:hover {
+    color: #fff;
     background-color: hotpink;
   }
 `;
@@ -91,7 +104,7 @@ export default function ProductBox({ _id, title, description, price, images }) {
           </PriceUnit>
           <CartButton onClick={() => addProductToCart(_id)}>
             <CartIcon></CartIcon>
-            Add to cart - ₩{price.toLocaleString("ko-KR")}
+            Add to cart
           </CartButton>
         </PriceRow>
       </ProductInfoBox>

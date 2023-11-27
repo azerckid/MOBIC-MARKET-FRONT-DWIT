@@ -109,7 +109,7 @@ export default function Header() {
           <StyledNav mobile={mobileNavActive}>
             <StyledLink href="/">Home</StyledLink>
             <StyledLink href="/products">All Products</StyledLink>
-            <StyledLink href="/account">Account</StyledLink>
+            {/* <StyledLink href="/account">Account</StyledLink> */}
             <StyledLink href="/cart">Cart ({cartProducts.length})</StyledLink>
             {/* {session ? (
               <StyledLink

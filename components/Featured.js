@@ -147,7 +147,7 @@ export default function Featured({ product }) {
           </Column>
           <Column>
             <img
-              src="https://mobic-market.s3.ap-northeast-2.amazonaws.com/1700214041078.png"
+              src="https://mobic-market.s3.ap-northeast-2.amazonaws.com/1701100893632.png"
               alt="featured"
             />
           </Column>

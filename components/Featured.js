@@ -79,7 +79,7 @@ const ButtonNew = styled.button`
   cursor: pointer;
   background-color: gray;
   &:hover {
-    background-color: #4431d6;
+    background-color: hotpink;
   }
   ${(props) =>
     props.primary &&
@@ -109,7 +109,7 @@ const ButtonLinkNew = styled(Link)`
   cursor: pointer;
   background-color: gray;
   &:hover {
-    background-color: #4431d6;
+    background-color: hotpink;
   }
   ${(props) =>
     props.primary &&

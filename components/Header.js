@@ -105,7 +105,7 @@ export default function Header() {
     <StyledHeader>
       <Center>
         <Wraper>
-          <Logo href="/">MobicMarket</Logo>
+          <Logo href="/">MobickMarket</Logo>
           <StyledNav mobile={mobileNavActive}>
             <StyledLink href="/">Home</StyledLink>
             <StyledLink href="/products">All Products</StyledLink>

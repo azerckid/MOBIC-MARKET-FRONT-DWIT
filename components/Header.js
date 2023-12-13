@@ -111,6 +111,7 @@ export default function Header() {
             <StyledLink href="/products">All Products</StyledLink>
             {/* <StyledLink href="/account">Account</StyledLink> */}
             <StyledLink href="/cart">Cart ({cartProducts.length})</StyledLink>
+            {/* <StyledLink href="/agree">Agree</StyledLink> */}
             {/* {session ? (
               <StyledLink
                 href="/auth"

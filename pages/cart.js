@@ -1,3 +1,4 @@
+import AgreeBox from "@/components/AgreeBox";
 import Button from "@/components/Button";
 import { CartContext } from "@/components/CartContext";
 import Center from "@/components/Center";
@@ -455,6 +456,7 @@ export default function CartPage() {
             <NaverButton onClick={onClickNaverPay}>토스 페이</NaverButton>
           </Box>
         </ColumnsWrapper>
+        <AgreeBox />
       </Center>
     </>
   );

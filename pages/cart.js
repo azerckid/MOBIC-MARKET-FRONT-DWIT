@@ -18,7 +18,6 @@ const ColumnsWrapper = styled.div`
     grid-template-columns: 1.3fr 0.7fr;
   }
 `;
-
 const Box = styled.div`
   padding: 2rem 0.5rem;
   display: flex;
@@ -41,7 +40,6 @@ const Box = styled.div`
     font-weight: 400;
   }
 `;
-
 const ProductInfoCell = styled.td`
   width: 80%;
   display: flex;
@@ -141,6 +139,12 @@ const NaverButton = styled.button`
   &:hover {
     background-color: hotpink;
   }
+`;
+const AgreeBoxWrapper = styled.div`
+  margin-top: 5rem;
+  padding-left: 3rem;
+  color: #999;
+  cursor: pointer;
 `;
 
 export default function CartPage() {
@@ -456,7 +460,12 @@ export default function CartPage() {
             <NaverButton onClick={onClickNaverPay}>토스 페이</NaverButton>
           </Box>
         </ColumnsWrapper>
-        <AgreeBox />
+        <AgreeBoxWrapper>
+          <details>
+            <summary>이용 약관</summary>
+            <AgreeBox />
+          </details>
+        </AgreeBoxWrapper>
       </Center>
     </>
   );

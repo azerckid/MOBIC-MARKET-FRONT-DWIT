@@ -11,3 +11,7 @@ pnpm dev
 # or
 bun dev
 ```
+
+```
+❯ npm i babel-plugin-styled-components --legacy-peer-deps
+```
